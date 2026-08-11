@@ -39,9 +39,9 @@
   }
   a{color:inherit;}
   .wrap{
-    max-width:920px;
+    max-width:1440px;
     margin:0 auto;
-    padding:0 28px;
+    padding:0 80px;
   }
 
   /* Nav */
@@ -52,7 +52,7 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    max-width:920px; margin:0 auto; padding:16px 28px;
+    max-width:1100px; margin:0 auto; padding:16px 40px;
     display:flex; justify-content:space-between; align-items:center;
   }
   .nav-inner .logo{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:17px;}
@@ -112,8 +112,22 @@
   }
   .swatch{width:9px;height:9px;border-radius:2px;}
 
+  /* About
+  .about-content{
+    max-width:820px;
+  } */
+  .about-content p{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 20px;
+    line-height:1.8;
+    text-align:justify;
+    text-justify:inter-word;
+  }
+  .about-content p:last-child{margin-bottom:0;}
+
   /* Section headers */
-  section{padding:52px 0;}
+  section{padding:64px 0; max-width:1100px; margin-left:auto; margin-right:auto;}
   section + section{border-top:1px solid var(--line);}
   .section-head{
     display:flex; align-items:baseline; gap:14px; margin-bottom:32px;
@@ -126,12 +140,17 @@
   }
 
   /* Project cards */
+  .project-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
   .project{
     background:var(--bg-card);
     border:1px solid var(--line);
     border-radius:var(--radius);
     padding:26px 28px;
-    margin-bottom:18px;
+    margin-bottom:0;
     transition:border-color .18s, transform .18s;
   }
   .project:hover{border-color:#cfcdc6; transform:translateY(-2px);}
@@ -179,8 +198,11 @@
   /* Skills */
   .skills-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     gap:24px;
+  }
+  @media (min-width:1200px){
+    .skills-grid{grid-template-columns:repeat(4, 1fr);}
   }
   .skill-group{
     border:1px solid var(--line);
@@ -242,7 +264,13 @@
     font-family:'JetBrains Mono', monospace;
   }
 
+  @media (min-width:1000px){
+    .project-grid{grid-template-columns:1fr 1fr;}
+  }
+
   @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .nav-inner{padding:16px 20px;}
     .nav-links{gap:14px;}
     .hero{padding:64px 0 40px;}
     .contact-box{padding:32px 24px;}
@@ -255,6 +283,7 @@
   <div class="nav-inner">
     <div class="logo">Pradeep Kumar</div>
     <nav class="nav-links">
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -268,7 +297,7 @@
     <div class="eyebrow"><span class="dot"></span> android · ios · flutter</div>
     <h1>Pradeep Kumar</h1>
     <div class="role">Multi-Platform Mobile App Developer</div>
-    <p class="bio">9 years building mobile applications across native Android (Kotlin/Java), native iOS (SwiftUI), and cross-platform Flutter — shipping apps that logistics teams, healthcare networks, task forces, and CRM users rely on daily.</p>
+    <p class="bio">Mobile Application Developer specializing in Flutter, Android, and iOS — building modern, reliable, user-friendly apps that solve real-world business problems.</p>
 
     <div class="tri-bar"><span class="a"></span><span class="i"></span><span class="f"></span></div>
     <div class="platform-legend">
@@ -284,11 +313,28 @@
     </div>
   </section>
 
+  <section id="about">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="count">who I am</span>
+    </div>
+    <div class="about-content">
+      <p>I'm Pradeep Kumar, a passionate Mobile Application Developer specializing in Flutter, Android, and iOS development. I enjoy building modern, reliable, and user-friendly applications that solve real-world business problems.</p>
+      <p>My primary expertise is Flutter and Dart, where I develop cross-platform applications for Android and iOS. I have experience with GetX, REST APIs, JSON, Firebase, local storage, responsive UI, navigation, image and document uploads, and third-party integrations. I focus on writing clean, reusable, and maintainable code that can adapt to changing business requirements.</p>
+      <p>Along with Flutter, I have experience in native Android development using Kotlin, working with Jetpack Compose, XML layouts, Data Binding, Retrofit, OkHttp, Moshi, Dagger Hilt, Firebase, and ML Kit. I also work with iOS development using Swift and SwiftUI, including API integration, Firebase, CocoaPods, Xcode, provisioning, and App Store deployment.</p>
+      <p>I have worked on applications in areas such as logistics, shipping, warehouse management, CRM, healthcare, attendance, and other business solutions. These projects have helped me understand complex business processes and transform them into simple and efficient mobile experiences.</p>
+      <p>One of my key strengths is problem solving and debugging. I regularly work with issues related to APIs, Firebase, Gradle, Android SDK/NDK, CocoaPods, Xcode, Git, dependencies, and production builds. I enjoy finding the root cause of technical problems and implementing practical solutions.</p>
+      <p>I believe that successful software requires more than just good code. It should provide a smooth user experience, perform reliably, and be easy to maintain and scale.</p>
+      <p>I'm a continuous learner who enjoys exploring new technologies and improving my skills. My goal is to build high-quality mobile applications that simplify business processes, improve productivity, and create meaningful value for users.</p>
+    </div>
+  </section>
+
   <section id="work">
     <div class="section-head">
       <h2>Shipped Work</h2>
       <span class="count">07 apps live on stores</span>
     </div>
+    <div class="project-grid">
 
     <!-- WMS -->
     <div class="project">
@@ -372,6 +418,7 @@
         <a class="project-link" href="https://apps.apple.com/us/app/tls-connect/id6742644493" target="_blank" rel="noopener">App Store →</a>
       </div>
     </div>
+    </div>
   </section>
 
   <section id="skills">
@@ -383,25 +430,25 @@
       <div class="skill-group">
         <div class="head"><span class="swatch" style="background:var(--android)"></span><h3>Android</h3></div>
         <ul>
-          <li>Kotlin</li><li>Java</li><li>Android SDK</li><li>MVVM</li><li>REST APIs</li>
+          <li>Kotlin</li><li>Java</li><li>Android SDK</li><li>Jetpack Compose</li><li>XML Layouts</li><li>Data Binding</li><li>Retrofit</li><li>OkHttp</li><li>Moshi</li><li>Dagger Hilt</li><li>ML Kit</li><li>MVVM</li>
         </ul>
       </div>
       <div class="skill-group">
         <div class="head"><span class="swatch" style="background:var(--ios)"></span><h3>iOS</h3></div>
         <ul>
-          <li>Swift</li><li>SwiftUI</li><li>UIKit</li><li>Xcode</li>
+          <li>Swift</li><li>SwiftUI</li><li>UIKit</li><li>Xcode</li><li>CocoaPods</li><li>Provisioning &amp; App Store Deployment</li>
         </ul>
       </div>
       <div class="skill-group">
         <div class="head"><span class="swatch" style="background:var(--flutter)"></span><h3>Cross-Platform</h3></div>
         <ul>
-          <li>Flutter</li><li>Dart</li>
+          <li>Flutter</li><li>Dart</li><li>GetX</li><li>REST APIs</li><li>JSON</li><li>Local Storage</li><li>Responsive UI</li>
         </ul>
       </div>
       <div class="skill-group">
         <div class="head"><span class="swatch" style="background:var(--accent)"></span><h3>General</h3></div>
         <ul>
-          <li>Git</li><li>Firebase</li><li>API Integration</li><li>Google Maps</li><li>MVVM</li><li>Push Notifications</li><li>Play Store &amp; App Store Publishing</li>
+          <li>Git</li><li>Firebase</li><li>API Integration</li><li>Google Maps</li><li>Push Notifications</li><li>Gradle</li><li>Android SDK/NDK</li><li>Play Store &amp; App Store Publishing</li>
         </ul>
       </div>
     </div>
